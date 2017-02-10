@@ -208,7 +208,7 @@ public struct Span<T> {
 }
 ```
 
-A prototype of such fast Span\<T\> can be found at https://github.com/dotnet/coreclr/blob/SpanOfT/src/mscorlib/src/System/Span.cs. Through the magic of the "ref field", it can support slicing without requiring a strong pointer to the root of the sliced object. The GC is able to trace the interior pointer, keep the root object alive, and update the interior pointer if the object is relocated during a collection.
+A prototype of such fast Span\<T\> can be found at https://github.com/dotnet/corefx/blob/master/src/System.Memory/src/System/Span.cs. Through the magic of the "ref field", it can support slicing without requiring a strong pointer to the root of the sliced object. The GC is able to trace the interior pointer, keep the root object alive, and update the interior pointer if the object is relocated during a collection.
 
 A different representation will be implemented for platforms that don’t support ref fields (interior pointers):
 ```c#
